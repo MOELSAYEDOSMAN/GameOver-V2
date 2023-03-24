@@ -1,0 +1,107 @@
+﻿@using GameOver_V2.Data
+@{
+    ViewData["Title"] = "GropHome";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+   var groubsNot = ViewBag.GroubsNots;
+    var groubs = ViewBag.Groubs;
+}
+
+<div class="Groubs">
+    <div class="SerchNameGroub">
+        <h3>Enter Name Groub : </h3>
+        <input type="text" id="serchGroubName">
+        <input type="button" value="🔍" id="serchGroubNameBtn">
+        <div class="SuggestNameGrobs">
+        </div>
+        <button id="MyGroubsP" value="Groubs">Groubs</button>
+        <button id="CreateGurob" aria-details="Create Groub">Create Groub</button>
+    </div>
+
+    <div class="Main" id="NotSubscriver" style="display:none">
+        <h1>Groups:</h1>
+        @if (groubsNot.Count != 0)
+        {
+            foreach (var i in groubsNot)
+            {
+                <article class="card card--1">
+                    <div class="card__info-hover">
+                        <div class="card__clock-info">
+                            <span class="card__time">@i.Title</span>
+                        </div>
+                    </div>
+                    <div class="card__img"></div>
+                    <a title="Join In Grpub" href="/UserFunction/Subscribe_In_Groub/@i.IdGroub" class="card_link">
+                        <div class="card__img--hover" style="background-image:url(/Img/Icon/@i.iconImage);"></div>
+                    </a>
+                    <div class="card__info">
+                        @if (i.Password == true)
+                        {
+                            <span class="card__category">
+                                Priavt
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="card__category">
+                                Subscribers: @i.subscriberNumber
+                            </span>
+                        }
+                        <h3 class="card__title">@i.Name  <br></h3>
+                    </div>
+                </article>
+            }
+               
+            }
+            else
+            {
+            <h1 style="margin-bottom:700px;" class="align-content-center alert">No Groubs</h1>
+            
+            }
+        </div>
+    <div class="Main"  id="Subscriver">
+        <h1>My Groups:</h1>
+        @if (groubs.Count!=0)
+        {
+            foreach (var i in groubs)
+            {
+                <article class="card card--1">
+                    <div class="card__info-hover">
+                        <div class="card__clock-info">
+                            <span class="card__time">@i.Title</span>
+                        </div>
+                    </div>
+                    <div class="card__img"></div>
+                    <a href="Chat/@i.IdGroub" class="card_link">
+                        <div class="card__img--hover" style="background-image:url(/Img/Icon/@i.iconImage);"></div>
+                    </a>
+                    <div class="card__info">
+                        @if (i.Password == true)
+                        {
+                            <span class="card__category">
+                                Priavt
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="card__category">
+                                Subscribers: @i.subscriberNumber
+                            </span>
+                        }
+                        <h3 class="card__title">@i.Name  <br></h3>
+                    </div>
+                </article>
+            }
+        }
+        else
+        {
+
+            <h1 style="margin-bottom:700px;" class="align-content-center alert">No Groubs</h1>
+        }
+        </div>
+
+
+
+    </div>
+
+
+

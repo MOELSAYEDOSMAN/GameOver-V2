@@ -1,0 +1,107 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "PagesPosts";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var pos1 = ViewBag.pos;
+}
+
+<div class="Pos_Left">
+    <div class="Hed_Pos_Lef">
+        <img src="/Img/User/@ViewBag.imgUsr">
+        <p>@User.Identity.Name</p>
+    </div>
+    @*<div class="Pages_Pos">
+        <div class="Hed_Page_pos">
+            <p>Pages:</p>
+            <button id="SwDwonPage">🔻</button>
+        </div>
+        <hr>
+        <div class="Pages_Pos" id="PagesS">
+            <div class="pg">
+                <img src="assets/img/p29.jpg">
+                <h4>Page 1</h4>
+                <button>X</button>
+            </div>
+        </div>
+    </div>*@
+</div>
+
+<div class="CenterPag_pos">
+    <div class="EditPost">
+        <h1>Upload Post:</h1>
+        <form asp-controller="UserFunction" asp-action="UploadPost" method="post" enctype="multipart/form-data">
+            <textarea cols="80" rows="10" name="PostMessage" placeholder="Write Any Think"></textarea>
+            <input type="file" name="ImageFiles" accept="Image/*" id="ImageFiles" style="display: None;">
+            <label for="ImageFiles">Upload Phots</label>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+    <div class="Posts">
+      
+           @if(pos1!=null)
+           {
+                foreach (var i in pos1)
+                {
+                    <div class="po">
+                        <div class="InfomationUser">
+                            <a href="/UserFunction/PageUser/@i.Email">
+                                <img src="/Img/User/@i.ImageSrc">
+                                <p>@i.UserName</p>
+                            </a>
+                        </div>
+                        @if (i.DecPost != null)
+                        {
+                            <h3>
+                                @i.DecPost
+                            </h3>
+                        }
+
+                        @if (i.ImageSrc != null)
+                        {
+                            <img src="/Img/Posts/@i.ImgSrc" alt="">
+                        }
+
+                        <div class="LikeOrSharOrComment">
+                            <button title="like">👍</button>
+                            <label>@i.nLike</label>
+                            <button title="disLike">👎</button>
+                            <label>@i.nDisLike</label>
+                            <button title="Comment">🗨</button>
+                            <label>@i.Comments_</label>
+                            <button title="Share">↪</button>
+                            <label>@i.Share_</label>
+                        </div>
+                        <div class="Comments">
+                            <div class="SendComment">
+                                <textarea name="Commet" cols="120" rows="4"></textarea>
+                                <input type="button" value="🗨">
+                            </div>
+                            <div class="Comments_S">
+                                <div class="InfromationUser">
+                                    <a href="">
+                                        <img src="assets/img/p27.jpg">
+                                        <p>Mohamed Elsayed</p>
+                                    </a>
+                                    <div class="C_Write">
+                                        <h5>ansdjlasndkjsabkdbsahbdbsjfhvajsfvjksbvdafhjdsabkfbsdjfhadshfj</h5>
+                                        <div class="LOrDis">
+                                            <button title="like">👍</button>
+                                            <label>0</label>
+                                            <button title="disLike">👎</button>
+                                            <label>0</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+           }
+        
+
+       
+      
+
+    </div>
+</div>

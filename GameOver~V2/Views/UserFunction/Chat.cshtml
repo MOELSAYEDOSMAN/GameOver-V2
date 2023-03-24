@@ -1,0 +1,92 @@
+﻿@using GameOver_V2.Data
+@{
+    Groub gr = ViewBag.gr;
+    ViewData["Title"] = $"Chat -{gr.Name}";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var Chatss = ViewBag.Chts;
+    var subsc = ViewBag.Subs;
+    var Id_User = ViewBag.IdUser;
+}
+
+
+
+      <div class="ChatHome">
+        <div class="ChatsGroubs">
+          <div class="serchHeader">
+            <input type="text" placeholder="Serch Users" name="SerchGroub">
+            <input type="button" value="search" id="FindChat">
+          </div>
+          <div class="ChtaGrobCoulms">
+              @foreach(var i in subsc)
+              {
+                <a href="/UserFunction/PageUser/@i.Email">
+                <div class="groubSelect">
+                    <img src="/Img/User/@i.ImageSrc">
+                    <h3>@i.UserName</h3>
+
+                </div>
+                </a>
+              }
+            <input id="user" type="text" value="@Id_User" style="display:none;">
+            <input id="groub" type="text" value="@gr.IdGroub" style="display:none;">
+          </div>
+        </div>
+
+        <div class="ChatGuroubMessagesonline">
+          <div class="headerChatGuroubMessagesonline">
+            <img src="/img/Icon/@gr.iconImage" alt="">
+            <h2>#@gr.Name</h2>
+          </div>
+          <div id="CHAT" class="Chat">
+            @if (Chatss.Count > 0)
+            {
+                foreach (var i in Chatss)
+                {
+                    @*User*@
+                    if (i.Id == Id_User)
+                    {
+                        <div class="UserMessage">
+                            <div class="Information">
+                                <p>Time : @i.SendTime</p>
+                            </div>
+                            <div class="Message">
+                                <h2>
+                                    @i.Message
+                                </h2>
+                            </div>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="Other">
+                            <div class="Information">
+                            <p>@i.UserName</p>
+                            <p>Time : @i.SendTime</p>
+                        </div>
+                        <div class="Message">
+                            <h2>
+                                @i.Message
+                            </h2>
+                        </div>
+                    </div>
+
+                }
+
+            }
+            }
+          </div>
+
+
+          @*Send Message*@
+          <div class="MyChat">
+            <input type="text" name="Message" id="MessageText">
+            <input id="sendButton" type="button" value="Send">
+          </div>
+      </div>
+
+
+
+
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/Chat.js"></script>

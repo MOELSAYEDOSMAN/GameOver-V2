@@ -1,0 +1,9 @@
+1-اضافه صفحه الاصدقاء مثل صفحه جروب يكون فيه اصدقائي و اصدقاء الي بعتين طلب
+2-اضافه صفحه Posts مثل faceBoock
+3-اضافه صفحه لعرض فديوهات مثل youtube
+4-شات الاصدقاء
+5-صفحه بحث في جروب بتعرض صفحات الامشترك و الي هيشرك فيه
+
+git remote add origin https://github.com/MOELSAYEDOSMAN/GameOverV2SocialMedia_Asp.Net_Coro.git
+git branch -M main
+git push -u origin main

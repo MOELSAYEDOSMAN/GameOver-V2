@@ -1,0 +1,46 @@
+﻿@using static GameOver_V2.Controllers.AdminFunctionController
+@model InputNews
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "New News";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="NewsPage">
+    <h1>Enter New News:</h1>
+    <h3 style="color: red;">Check Data:</h3>
+    <form asp-action="CreatNews" method="post" asp-controller="AdminFunction" enctype="multipart/form-data">
+        <div class="News_Inpt">
+            <label>Enter Name News:</label>
+            <input type="text" asp-for="NameNews" required>
+            <span class="Denger" asp-validation-for="NameNews"></span>
+        </div>
+        <div class="News_Inpt">
+            <label>Enter Title:</label>
+            <input type="text" asp-for="Title" required>
+            <span class="Denger" asp-validation-for="Title"></span>
+        </div>
+        <div class="News_Inpt">
+            <label>Enter Decrption:</label>
+            <input type="text" asp-for="Descrption" required>
+            <span class="Denger" asp-validation-for="Descrption"></span>
+        </div>
+        <div class="News_Inpt">
+            <label>upload Icon:</label>
+            <input type="file" name="Icon">
+            <span class="Denger">@ViewBag.Error</span>
+        </div>
+        <div class="News_Inpt">
+            <label>Upload Image In File:</label>
+            <input type="file" name="ImageInfileHtml" multiple>
+            <span class="Denger">@ViewBag.Error</span>
+        </div>
+        <div class="News_Inpt">
+            <label>Enter File News:</label>
+            <input type="file" name="PageHtmlN">
+            <span class="Denger">@ViewBag.Error</span>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+</div>
+

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "FrindsPage";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var Frinds1 = ViewBag.Frinds1;
+    var Frinds2 = ViewBag.Frinds2;
+    var OrderFrinds = ViewBag.FrindsRecive;
+}
+
+
+
+<div class="Groubs">
+    <div class="SerchNameGroub">
+        <h3>Enter Name Groub : </h3>
+        <input type="text" id="serchGroubName">
+        <input type="button" value="🔍" id="serchGroubNameBtn">
+        <div class="SuggestNameGrobs">
+        </div>
+        <button id="MyFrindsP" style="cursor: pointer;background: #15de15;border: none;font-family: cursive;padding: 10px;margin-left: 124px;color: white; border-radius: 13px;" value="Frinds">
+            Frinds
+        </button>
+    </div>
+
+    <div class="Main" id="NotSubscriver" style="display:none">
+        <h1>Friendship Requests:</h1>
+       @foreach(var i in OrderFrinds)
+       {
+            <article class="card card--1">
+                <div class="card__img"></div>
+                <a href="#" class="">
+                    <div class="card__img--hover" style="background-image:url(/img/User/@i.ImageSrc);"></div>
+                </a>
+                <div class="card__info">
+                    <h3 class="card__title">@i.UserName  <br></h3>
+                    <span class="card__by">
+                        <a href=" /UserFunction/AddFrindful/@i.Email"><button class="card__author" style="background-color: red;">X</button></a>
+                        <a href=" /UserFunction/AddFrindTr/@i.Email"><button class="card__author" style="background-color: rgb(11, 168, 11);">✔</button></a>
+                    </span>
+                </div>
+            </article>
+        }
+    </div>
+
+    <div class="Main" id="Subscriver">
+        <h1>My Frinds:</h1>
+        @foreach (var i in Frinds1)
+        {
+            <article class="card card--1">
+                <div class="card__img"></div>
+                <a href="/UserFunction/PageUser/@i.Email" class="card_link">
+                    <div class="card__img--hover" style="background-image:url(/img/User/@i.ImageSrc);"></div>
+                </a>
+                <div class="card__info">
+                    <h3 class="card__title">@i.UserName  <br></h3>
+                </div>
+            </article>
+        }
+        @foreach (var i in Frinds2)
+        {
+            <article class="card card--1">
+                <div class="card__img"></div>
+                <a href="#" class="card_link">
+                    <div class="card__img--hover" style="background-image:url(/img/User/@i.ImageSrc);"></div>
+                </a>
+                <div class="card__info">
+                    <h3 class="card__title">@i.UserName  <br></h3>
+                </div>
+            </article>
+        }
+    </div>
+
+
+
+</div>
+

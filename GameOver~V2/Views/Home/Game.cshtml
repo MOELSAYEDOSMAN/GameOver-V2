@@ -1,0 +1,137 @@
+﻿@model GameOver_V2.Data.Game
+@{
+    ViewData["Title"] = "Game";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    List<GameOver_V2.Data.ImageGames> gameImgSrcs = ViewBag.imgBackGround;
+    var Comnts = ViewBag.Comments;
+}
+
+<div class="SoloGame">
+    <div class="ImagesGameShow">
+        <div class="BigImage">
+            <img src="~/Img/BackGroundGame/@gameImgSrcs[0].ImgSrc">
+        </div>
+        <div class="SmallImages">
+            @foreach (var s in gameImgSrcs)
+            {
+                if (s.IdImageGames != gameImgSrcs[0].IdImageGames)
+                {
+                            <img src="~/Img/BackGroundGame/@s.ImgSrc">
+                }
+
+            }
+        </div>
+
+    </div>
+    <div class="InformationGame">
+        <div class="IconGame">
+            <img src="~/Img/BackGroundGame/@Model.iconSrc" alt="IconGame">
+        </div>
+        <div class="NameGame">
+            <p>@Model.Name</p>
+            <p>product :@Model.DateDownload.Year</p>
+            <p>Type :@Model.Type</p>
+            <p>Size :@Model.Hard</p>
+            <p>Download on Website :@Model.downloadNumber</p>
+        </div>
+        <div class="Dec">
+            <p>@Model.lowDec</p>
+        </div>
+        <div class="LikeOrNo">
+            <div class="numLike">
+                <button id="Likebtn">👍</button>
+                <label id="tLike">@Model.likeN</label>
+            </div>
+            <div  class="numLike">
+                <button id="DisLike">👎</button>
+                <label id="TDisLike">@Model.disLikeN</label>
+            </div>
+        </div>
+    </div>
+    <div class="BigDescriptionGame">
+        @Model.bigDec
+    </div>
+    <div class="ReqiredGame">
+        <div class="MinmenReqiredGame">
+            <h2>Minmen Reqired GAME :</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Hardware</td>
+                        <td>Reqired</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cpu</td>
+                        <td>@Model.Cpu</td>
+                    </tr>
+                    <tr>
+                        <td>Gpu</td>
+                        <td>@Model.Gpu</td>
+                    </tr>
+                    <tr>
+                        <td>Ram</td>
+                        <td>@Model.Ram</td>
+                    </tr>
+                    <tr>
+                        <td>Space</td>
+                        <td>@Model.Hard</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Download Game:</h2>
+            <button>Download</button>
+        </div>
+    </div>
+    <div class="Coments">
+    @Html.Partial("Comments")
+        @if (Comnts != null)
+        {
+            <h3 style="display: contents;">Comments :</h3>
+
+            <h3 style="display: contents;" id="NumerComents">@Comnts.Count</h3>
+
+            <div class="OtherComents">
+
+                @foreach (var c in Comnts)
+                {
+                    <!-- ----------------------------------------- -->
+                    <div class="oComent">
+                        <div class="InfUser">
+                            <p>@c.Email</p>
+                            <br>
+                            <p>Date:@c.DateTime</p>
+                        </div>
+                        <textarea cols="8" rows="3" disabled>
+                            @c.Comment
+                                            </textarea>
+                        <div class="LikeUsers">
+                            <div class="numLike">
+                                <button>👍</button>
+                                <label>@c.numberLike</label>
+                            </div>
+                            <div class="numLike">
+                                <button>👎</button>
+                                <label>@c.numberDisLike</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ----------------------------------------- -->
+                }
+            </div>
+        }
+        else
+        {
+            <div style="text-align:center;" class="OtherComents">
+                <h1 style="color:red">No Comments</h1>
+            </div>
+
+        }
+
+    </div>
+
+</div>
+
+

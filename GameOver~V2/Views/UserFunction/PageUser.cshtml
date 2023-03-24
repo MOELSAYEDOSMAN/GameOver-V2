@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewData["Title"] = "PageUser";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    int stsa = ViewBag.stsateUser;
+    var Gams = ViewBag.gms;
+    var fr1 = ViewBag.Frinds1;
+    var fr2 = ViewBag.Frinds2;
+    UserMoreInfromation usm = ViewBag.Muser;
+}
+@using GameOver_V2.Data
+@model List<PostsUser>
+
+<div class="MainEmailUserPage">
+    <div class="header_PagePerson">
+        <div class="Information">
+            <img src="/Img/User/@usm.ImageSrc">
+            <p>@usm.User.Email</p>
+        </div>
+        @if(stsa==3)
+        {
+            <button>🗨</button>
+        }
+        else if (stsa == 4)
+        {
+            <button disabled>Wait</button>
+        }
+        else if(stsa==2)
+        {
+            <form action="/UserFunction/AddFrinds" method="post">
+                <input name="Email" style="display:none;" value="@usm.User.Email">
+            <button type="submit">+</button>
+            </form>
+        }
+        
+    </div>
+    <div class="InfromationGameAndFrinds">
+        <div class="Gr_Content" style="width: 54%;">
+            <p>Games</p>
+            <div class="Games">
+                @foreach(var i in Gams)
+                {
+                    <a href="/Home/Game/@i.Name.Replace(" ", "")">
+                        <div class="Us">
+                            <img src="/Img/BackGroundGame/@i.iconSrc">
+                            <div class="Informati">
+                                <p>@i.Name</p>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="Gr_Content" style="width:46% ;">
+            <p>Frinds:</p>
+            <div class="Games">
+                @foreach (var i in fr1)
+                {
+                    <a style="margin: 38px;" href="/UserFunction/PageUser/@i.Email">
+                        <div class="Us">
+                            <img src="/Img/User/@i.ImageSrc">
+                            <div class="Informati">
+                                <p>@i.UserName</p>
+                            </div>
+                        </div>
+                    </a>
+                }
+                @foreach (var i in fr2)
+                {
+                    <a style="margin: 38px;" href="UserFunction/PageUser/@i.Email">
+                        <div class="Us">
+                            <img src="/Img/User/@i.ImageSrc">
+                            <div class="Informati">
+                                <p>@i.UserName</p>
+                            </div>
+                        </div>
+                    </a>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="Post">
+        <div class="HeaderPosts">
+            <h3>Posts Users:</h3>
+        </div>
+        @if(Model!=null)
+        {
+            foreach(var i in Model )
+            {
+                <div class="po">
+                    @if(i.DecPost!=null)
+                    {
+                        <h3>
+                            @i.DecPost
+                        </h3>
+                    }
+                    
+                    @if(i.ImgSrc!=null)
+                    {
+                        <img src="/Img/Posts/@i.ImgSrc" alt="">
+                    }
+                    
+                    <div class="LikeOrSharOrComment">
+                        <button title="like">👍</button>
+                        <label>@i.nLike</label>
+                        <button title="disLike">👎</button>
+                        <label>@i.nDisLike</label>
+                        <button title="Comment">🗨</button>
+                        <label>@i.Comments_</label>
+                        <button title="Share">↪</button>
+                        <label>@i.Share_</label>
+                    </div>
+                    <div style="display:none" class="Comments">
+                        <div class="SendComment">
+                            <textarea name="Commet" cols="120" rows="4"></textarea>
+                            <input type="button" value="🗨">
+                        </div>
+                        <div class="Comments_S">
+                            <div class="InfromationUser">
+                                <a href="">
+                                    <img src="assets/img/p27.jpg">
+                                    <p>Mohamed Elsayed</p>
+                                </a>
+                                <div class="C_Write">
+                                    <h5>ansdjlasndkjsabkdbsahbdbsjfhvajsfvjksbvdafhjdsabkfbsdjfhadshfj</h5>
+                                    <div class="LOrDis">
+                                        <button title="like">👍</button>
+                                        <label>0</label>
+                                        <button title="disLike">👎</button>
+                                        <label>0</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        
+    </div>
+
+
+</div>
+
+

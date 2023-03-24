@@ -1,0 +1,15 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+    @if (User.Identity?.Name != null)
+    {
+        <div class="WriteCommen">
+            
+                <!--Ajax-->
+        <textarea placeholder="Enter  Comment" id="commentcomment" name="comment" cols="8" rows="3"></textarea>
+                <input type="submit" value="Send" id="SendComment">
+           
+            <!--end Ajax-->
+        </div>
+    }
+    

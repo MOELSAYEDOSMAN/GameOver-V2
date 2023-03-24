@@ -1,0 +1,185 @@
+﻿@inject UserManager<IdentityUser> UserManager
+@inject ApplicationDbContext db
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GameOver</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/brands.css" rel="stylesheet" />
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Google Web Fonts
+    ================================================== -->
+    @*    <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/22a24d17be.js" crossorigin="anonymous"></script>*@
+</head>
+<body>
+    <header class="header-home-page">
+
+        <div class="header-logo-home" style="width:fit-content;">
+            <a href="/Home/Index"><img src="~/img/logo-re1.png" width="150px" height="150px" alt="game over"></a>
+        </div>
+
+        <nav class="nav-bar-home-page">
+            <ul>
+                <li><a href="/Home/Index">HOME</a></li>
+                <li><a href="/UserFunction/GropHome">GROUBS</a></li>
+                <li><a href="/UserFunction/FrindsPage">FRINDS</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="/UserFunction/PagesPosts">Posts</a></li>
+                <li><a href="#">SHOP</a></li>
+            </ul>
+        </nav>
+
+        <!--                 search             -->
+
+        <div class="centerbox">
+
+            <div class="main-form-container">
+                <input input type="text" id="serchGameText" class="main-input main-name" name="GAMES" placeholder="Search by games" onfocus="clearText(this)" onblur="replaceText(this)">
+                <input id="main-submit" class="" type="button" value="Search" />
+
+                <div class="SuggestNameGames">
+                </div>
+            </div>
+        </div>
+        <!-- Account User -->
+        <div class="AcoountUser">
+            @if(User.Identity?.Name!=null)
+            {
+                var us=UserManager.GetUserId(User);
+                var u = db.userMData.SingleOrDefault(x => x.User.Id == us);
+                <img id="ImgAccount" onclick="showMenu()" src="~/img/User/@u.ImageSrc">
+            }
+            else
+            {
+            <img id="ImgAccount" onclick="showMenu()" src="~/img/user.png">
+            }
+
+            <div class="menuUser" id="menuUser">
+                <ul>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+        </div>
+
+
+
+    </header>
+    <div>
+        <main role="main" class="mainPageHome pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <div class="FindGamePage">
+        <div class="HeaderFind">
+            <div class="FilterGame">
+                <label>Type Game:</label>
+                <select id="typeGameLs">
+                    <option value="all">All</option>
+                    <option value="sport">sport</option>
+                    <option value="Action">Action</option>
+                    <option value="Advance">Advance</option>
+                    <option value="Free">Free</option>
+                    <option value="Online">Online</option>
+                </select>
+                <label>max price:</label>
+                <input type="range" id="RangeMenoy" style="color: greenyellow;accent-color: currentcolor;" value="1500" min="0" max="1500">
+                <label id="RangeMenoyValue">1500</label>
+            </div>
+
+            <button id="CloseFind">X</button>
+        </div>
+        <div class="main"></div>
+    </div>
+    @if (ViewData["Title"] == "GropHome")
+    {
+        @Html.Partial("CreateGroubs")
+    }
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Team Kafer_ALsheakh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>01554552793</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>mohamedels312ead@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="~/img/logo-re1.png" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>The strongest site for selling and developing games <br>Allows you to download games very easily and develop them as well,<br>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2022, All Right Reserved <a href="#">Game Over</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="controller/action" type="text/javascript"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script type="text/javascript">
+        var lsData = @Json.Serialize(ApplicationDbContext.GamesData());
+    </script>
+    
+
+</body>
+</html>
+

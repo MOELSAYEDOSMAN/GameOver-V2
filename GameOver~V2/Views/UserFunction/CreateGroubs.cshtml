@@ -1,0 +1,34 @@
+﻿@using static GameOver_V2.Controllers.UserFunctionController
+@model InputGroub
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div id="CreateGroubDiv">
+    <button id="CloseCreateGroub"> X </button>
+    <form asp-action="CreateGroubs" asp-controller="UserFunction" method="post" enctype="multipart/form-data">
+        <div class="rocerd">
+            <label>Name Groub :</label>
+            <input type="text" asp-for="Name" required aria-required="true" aria-placeholder="Enter Name Groub">
+            <span asp-validation-for="Name" class="Denger"></span>
+        </div>
+        <div class="rocerd">
+            <label>Detiles Groub</label>
+            <input type="text" asp-for="Title" required aria-required="true" maxlength="100" aria-placeholder="Enter Name Groub">
+            <span asp-validation-for="Title" class="Denger"></span>
+        </div>
+        <div class="rocerd">
+            <label>Upload Photo :</label>
+            <input type="file" name="file" aria-required="true" aria-placeholder="upload Photo">
+        </div>
+     <div class="rocerd">
+      <label>Privat :</label>
+            <input type="checkbox" asp-for="Password" id="myCheck" onclick="ShowChecked()" name="Password">
+    </div>
+
+    <div class="rocerd" id="Pass" style="display: none;">
+      <label>Enter Password :</label>
+            <input type="text" id="PasswordChar" asp-for="PasswordChar" name="PasswordChar">
+    </div>
+        <div class="rocerd">
+            <input type="submit" value="Sumbit">
+        </div>
+    </form>
+</div>

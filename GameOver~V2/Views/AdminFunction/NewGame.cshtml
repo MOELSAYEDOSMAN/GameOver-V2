@@ -1,0 +1,97 @@
+﻿@using static GameOver_V2.Controllers.AdminFunctionController
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model InputGame
+@{
+    ViewData["Title"] = "NewGame";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="CreateGame">
+    <h1>Enter Information New Game :</h1>
+    <h4>Make Sure That The Game Is New And The Information Is Correct</h4>
+    <form asp-action="NewGame" asp-controller="AdminFunction" method="post" enctype="multipart/form-data">
+        <div class="roloe">
+            <h2>Enter Name :</h2>
+            <input asp-for="Name"  placeholder="Name" required>
+            <br />
+            <span asp-validation-for="Name" class="Denger"></span>
+        </div>
+        <div class="roloe">
+            <h2>Enter type :</h2>
+            <select asp-for="Type">
+                <option value="Action">Action</option>
+                <option value="Sport">Sport</option>
+                <option value="Advance">Advance</option>
+                <option value="Free">Online</option>
+                <option value="StoryGame">StoryGame</option>
+                <option value="Online">Online</option>
+            </select>
+        </div>
+        <div class="roloe">
+            <h2>Enter price :</h2>
+            <input asp-for="Price" placeholder="price" required>
+            <br>
+            <span asp-validation-for="Price" class="Denger"></span>
+        </div>
+        <div class="roloe">
+            <h2>Small Decrption :</h2>
+            <input asp-for="lowDec" placeholder="Decrption" required>
+            <br>
+            <span asp-validation-for="lowDec" class="Denger"></span>
+        </div>
+        <div class="roloe">
+            <h2>Big Decrption :</h2>
+            <textarea asp-for="bigDec" required placeholder="BigDecrption" id="" cols="30" rows="10"></textarea>
+            <br>
+            <span asp-validation-for="bigDec" class="Denger"></span>
+        </div>
+        <div class="roloe">
+            <h2>Game For +18 :</h2>
+            <input asp-for="Age">
+        </div>
+        <div class="roloe">
+            <h2>Enter Link :</h2>
+            <input asp-for="Link" placeholder="Link" required>
+            <br>
+            <span asp-validation-for="Link" class="Denger"></span>
+        </div>
+        <div class="ReqiredGame">
+            <h1>Enter Reqired Game Minmen :</h1>
+            <div class="Hardwar">
+                <h2>Enter Cpu :</h2>
+                <input asp-for="Cpu" placeholder="Cpu" required>
+                <br>
+                <span asp-validation-for="Cpu" class="Denger"></span>
+            </div>
+            <div class="Hardwar">
+                <h2>Enter RAM :</h2>
+                <input asp-for="Ram" placeholder="RAM" required>
+                <br>
+                <span asp-validation-for="Ram" class="Denger"></span>
+            </div>
+            <div class="Hardwar">
+                <h2>Enter Hard :</h2>
+                <input asp-for="Hard" placeholder="Hard" required>
+                <br>
+                <span asp-validation-for="Hard" class="Denger"></span>
+            </div>
+            <div class="Hardwar">
+                <h2>Enter Gpu :</h2>
+                <input asp-for="Gpu" placeholder="Gpu" required>
+                <br>
+                <span asp-validation-for="Gpu" class="Denger"></span>
+            </div>
+        </div>
+        <div class="roloe">
+            <h2>Enter Icone Game :</h2>
+            <input type="file" placeholder="Enter Icon Image" name="Icon">
+        </div>
+        <div class="roloe">
+            <h2>Enter BackGroun Image Game :</h2>
+            <input type="file" placeholder="Enter Icon Image" multiple name="backGroundImages">
+        </div>
+        <div class="roloe">
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</div>

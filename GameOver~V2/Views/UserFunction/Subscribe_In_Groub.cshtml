@@ -1,0 +1,12 @@
+﻿@if (ViewBag.BoolF == true)
+{
+    <div class="PasswordGroubEnter">
+        <form asp-action="SetPasswordGroub" asp-controller="UserFunction" method="post">
+            <p>Enter Password Groub:</p>
+            <input type="password" name="Password" required>
+            <label style="color:red">@ViewBag.PasswordGroub</label>
+            <input type="submit" value="Join">
+        </form>
+    </div>
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

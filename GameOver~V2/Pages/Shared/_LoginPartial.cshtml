@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" id="DataUser">Hello @User.Identity?.Name.Remove(User.Identity.Name.IndexOf('@'))</a>
+        </li>
+        var us = UserManager.GetUserAsync(User).Result;
+        var usr = UserManager.GetRolesAsync(us).Result;
+        if (usr.Where(x=>x=="Admin").Count()>0)
+        {
+            <li>
+                <a href="#">Admin Page</a>
+            </li>
+        }
+        <li>
+            <form class="form-inline align-content-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>
