@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <style>
+        @media screen and (min-width:768px) and (max-width:1100px)
+ {
+     /*strat why we*/
+    #why_we .all .packg 
+    {
+        width: 60%;
+    }
+    
+}
+
+
+@media screen and (max-width:768px)
+ {
+     /*start header*/
+    header .all
+    {
+        flex-direction: column;
+    }
+    /*start fold*/
+    #fold
+    {
+        height: 350px;
+    }
+    #fold .all h1
+    {
+        font-size: 40px;
+    }
+    #fold .all p
+    {
+        font-size: 30px;
+    }
+    /*start why we*/
+    #why_we .all
+    {
+        flex-direction:column ;
+    }
+    #why_we .all .packg
+{
+    width: 100%;
+
+}
+}
+        *{
+    margin: 0;padding: 0;box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+.all
+{
+    width: 90%;
+    overflow: hidden;
+    margin: auto;
+}
+.cl
+{
+color: blueviolet;
+}
+.bgc
+{
+     background-color: blueviolet;
+}
+.sc
+{
+    color: white;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+/*home page*/
+/*header*/
+header
+{
+    background-color: #6c066c99;;
+   border-bottom:black 5px solid;
+}
+header .all
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+header .all .logo
+{
+    height:70px ;
+}
+header .all .logo img
+{
+    height: 100%;
+    width: 90px;
+    
+}
+header .all nav ul
+{
+    display: flex;
+    list-style-type: none;
+}
+header .all nav ul li
+{
+    margin-right: 30px;
+}
+header .all nav ul li :last-child
+{
+    margin-right: 0;
+}
+header .all nav ul li a
+{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+header .all nav ul li a:hover
+{
+    color: blueviolet;
+    width: 80%;
+    height: 110%;
+}
+/*end header*/
+/*start fold*/
+#fold
+{
+    background-image: url("img/Test1_5.png");
+    background-position: initial;
+    background-repeat: round;
+    background-size: cover;
+    background-attachment: local;
+    height: 500px;
+    border-bottom:black 8px solid;
+}
+#fold .all
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+#fold .all h1
+{
+    font-size: 60px;
+    position: relative;
+    animation: leftTorigt 2s ;
+}
+#fold .all p
+{
+    font-size: 45px;
+    position: relative;
+    animation: rightToleft 2s ;
+}
+/*end fold*/
+
+/*start why we*/
+.head_sec
+{
+text-align: center;
+padding: 25px;
+}
+#why_we .all
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+
+}
+#why_we .all .packg
+{
+    width: 30%;
+    text-align: center;
+
+}
+#why_we .all .packg .pc-img
+{
+    overflow: hidden;
+}
+#why_we .all .packg .pc-img img
+{
+    max-width: 80%;
+    transition: all 4s linear;
+}
+#why_we .all .packg .pc-img img:hover
+{
+        transform: scale(1.3,1.3);
+}
+#why_we .all .packg .pc-words h3
+{
+    font-size: 30px;
+}
+/*end why we*/
+/*start footer*/
+footer
+{
+    background-color: #6c066c99;;
+   border-bottom:black 5px solid;
+}
+footer .all
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+footer .all .fot-img
+{
+    height:70px ;
+
+}
+footer .all .fot-img img
+{
+    height: 100%;
+    width: 90px;
+        margin-right: 30px;
+}
+footer .all .fot-img img:last-child
+{
+
+        margin-right:0px;
+}
+/*end footer*/
+/*start anmion*/
+@keyframes leftTorigt
+{
+0%
+{
+    left:-1500px ;
+}
+100%
+{
+    left: 0px;
+}
+}
+@keyframes rightToleft
+{
+    
+        0%
+        {
+         right:-1500px ;
+        }
+        100%
+        {
+         right:0px;
+        }
+}
+    </style>
+    <title>HOME PAGE</title>
+</head>
+<body>
+    <!--star header -->
+    <header>
+        <div class="all">
+            <div class="logo">
+                <img src="img/Test1_1.png" alt="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li ><a  href="#" style="color: blueviolet;">HOME</a></li>
+                    <li><a href="#">SHOP</a></li>
+                    <li><a href="file:///D:/website/contact.html">contact</a></li>
+                    <li><a href="#">SER</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--end header -->
+    <!--star fold -->
+    <div id="fold">
+        <div class="all">
+            <h1 class="cl">welcom to fantasy</h1>
+            <p>best chose</p>
+        </div>
+    </div>
+    <!--end header -->
+    <!--star why we-->
+    <div id="why_we" >
+        <div class="head_sec bgc">
+            <h2 class="sc">Why WE?</h2>
+        </div>
+        <div class="all">
+            <div class="packg">
+                <div class="pc-img">
+                    <img src="img/Test1_2.png" alt="">
+                </div>
+              <div class="pc-words">
+                <h3 class="pc-h3">HOME delivery service</h3>
+              </div>
+              
+            </div>
+            <div class="packg">
+                <div class="pc-img">
+                    <img src="img/Test1_3.png" alt="">
+                </div>
+              <div class="pc-words">
+                <h3 class="pc-h3">payment service via visa of cash upon receipt</h3>
+              </div>
+              
+            </div>
+            <div class="packg">
+                <div class="pc-img">
+                    <img src="img/Test1_4.png" alt="">
+                </div>
+              <div class="pc-words">
+                <h3 class="pc-h3">after sales service</h3>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    <!--end why we-->
+    <!-- start footer-->
+</body>
+</html>

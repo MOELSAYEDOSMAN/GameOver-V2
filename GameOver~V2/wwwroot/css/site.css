@@ -1375,7 +1375,7 @@ ul.search-description {
                 font-size: 23px;
                 border-radius: 23px;
                 background-color: #878787;
-                width: fit-content;
+                width: 86px;
             }
 
                 .mainPageHome .Groubs .Main article a button:hover {
@@ -2673,4 +2673,58 @@ ul.search-description {
                 border-radius: 22px;
                 padding: 4px;
             }
-    
+.mainPageHome .CenterPag_pos::-webkit-scrollbar
+{
+    width:0;
+    height:0;
+}
+.mainPageHome .CenterPag_po::-webkit-scrollbar-thumb
+{
+    background:#999;
+}
+.mainPageHome .SoloGame .InformationGame .Dec::-webkit-scrollbar {
+    width: 2px;
+    height: 0;
+}
+.mainPageHome .SoloGame .InformationGame .Dec::-webkit-scrollbar-thumb {
+    background: #3cb13c;
+}
+.mainPageHome .SoloGame .Coments .OtherComents::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+.mainPageHome .SoloGame .Coments .OtherComents::-webkit-scrollbar-thumb {
+    background: #000;
+}
+.mainPageHome .ChatHome .ChatsGroubs .ChtaGrobCoulms::-webkit-scrollbar {
+    width: 2px;
+    height: 0;
+}
+
+.mainPageHome .ChatHome .ChatsGroubs .ChtaGrobCoulms::-webkit-scrollbar-thumb {
+    background: #3cb13c;
+}
+
+.mainPageHome .ChatHome .ChatGuroubMessagesonline .Chat::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+
+.mainPageHome .ChatHome .ChatGuroubMessagesonline .Chat::-webkit-scrollbar-thumb {
+    background: #000;
+}
+
+.mainPageHome .MainEmailUserPage .InfromationGameAndFrinds .Gr_Content .Games::-webkit-scrollbar {
+    width: 2px;
+    height: 0;
+}
+.mainPageHome .MainEmailUserPage .InfromationGameAndFrinds .Gr_Content .Games::-webkit-scrollbar-thumb {
+    background: #3cb13c;
+}
+.SuggestNameGames::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+.SuggestNameGames::-webkit-scrollbar-thumb {
+    background: #3cb13c;
+}

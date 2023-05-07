@@ -104,9 +104,9 @@ namespace GameOver_V2.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
             //Birthday
-            [DataType(DataType.DateTime)]
-            [Display(Name = "BirthDay")]
-            public DateTime Birthday { get; set; }
+            //[DataType(DataType.DateTime)]
+            //[Display(Name = "BirthDay")]
+            //public DateTime Birthday { get; set; }
         }
 
 
@@ -141,35 +141,35 @@ namespace GameOver_V2.Areas.Identity.Pages.Account
                     {
                         IdentityResult roleresult = await _userManager.AddToRoleAsync(user, defaultrole.Name);
                     }
-                    UserMoreInfromation userMore;
-                    if (ImageUser.Count>0)
-                    {
-                        string NameImg = Guid.NewGuid().ToString() + ".jpg";
-                        var filepath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/Img/User", NameImg);
-                        using (var steam = System.IO.File.Create(filepath))
-                        {
-                            await ImageUser[0].CopyToAsync(steam);
-                        }
-                         userMore = new UserMoreInfromation()
-                        {
-                            IdUserMoreInfromation = Guid.NewGuid().ToString(),
-                            ImageSrc=NameImg,
-                            Birthday=Input.Birthday,
-                            User=user
-                        };
-                    }
-                    else
-                    {
-                         userMore = new UserMoreInfromation()
-                        {
-                            IdUserMoreInfromation = Guid.NewGuid().ToString(),
-                            ImageSrc = "user.png",
-                            Birthday = Input.Birthday,
-                            User = user
-                        };
-                    }
-                    _db.userMData.Add(userMore);
-                   await _db.SaveChangesAsync();
+                   // UserMoreInfromation userMore;
+                   // if (ImageUser.Count>0)
+                   // {
+                   //     string NameImg = Guid.NewGuid().ToString() + ".jpg";
+                   //     var filepath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/Img/User", NameImg);
+                   //     using (var steam = System.IO.File.Create(filepath))
+                   //     {
+                   //         await ImageUser[0].CopyToAsync(steam);
+                   //     }
+                   //      userMore = new UserMoreInfromation()
+                   //     {
+                   //         IdUserMoreInfromation = Guid.NewGuid().ToString(),
+                   //         ImageSrc=NameImg,
+                   //         Birthday=Input.Birthday,
+                   //         User=user
+                   //     };
+                   // }
+                   // else
+                   // {
+                   //      userMore = new UserMoreInfromation()
+                   //     {
+                   //         IdUserMoreInfromation = Guid.NewGuid().ToString(),
+                   //         ImageSrc = "user.png",
+                   //         Birthday = Input.Birthday,
+                   //         User = user
+                   //     };
+                   // }
+                   // _db.userMData.Add(userMore);
+                   //await _db.SaveChangesAsync();
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,

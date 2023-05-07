@@ -202,7 +202,7 @@ namespace GameOver_V2.Controllers
                          .ToList();
                 ViewBag.Subs = Subs;
                 //Select Chat
-                var chts = (from c in db.Chats
+                var chts = (from c in db.Chats.OrderBy(x=>x.SendTime)
                             where c.groub.IdGroub == Id
                             join u in db.Users
                             on c.User equals u

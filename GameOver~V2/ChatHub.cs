@@ -13,14 +13,14 @@ namespace GameOver_V2
             this.db = db;
             this._userManager = userManager;
         }
-        public async Task sendMessage(string user, string Groub, string message)
+        public async Task SendMessage(string user, string Groub, string message)
         {
             var us = db.Users.SingleOrDefault(x => x.Id == user);
             Groub gr= db.Groubs.SingleOrDefault(x => x.IdGroub == Groub);
             if (us!=null&&gr!=null&&message.Length>0)
             {
                 string dtN = DateTime.Now.ToString();
-             await   Clients.Group(gr.IdGroub).SendAsync("rcive",message,dtN,us.UserName);
+             await   Clients.OthersInGroup(gr.IdGroub).SendAsync("rcive",message,dtN,us.UserName);
                 Chat chat = new Chat()
                 {
                     IdChat=Guid.NewGuid().ToString(),

@@ -2,6 +2,7 @@ using GameOver_V2;
 using GameOver_V2.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     ;
+builder.Services.AddAuthentication().AddGoogle(option =>
+{
+    IConfigurationSection googleAutSection = builder.Configuration.GetSection("Authentication:Google");
+    option.ClientId = googleAutSection["ClientId"];
+    option.ClientSecret= googleAutSection["ClientSecret"];
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 var app = builder.Build();

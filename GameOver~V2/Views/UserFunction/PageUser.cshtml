@@ -1,4 +1,4 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "PageUser";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -56,18 +56,18 @@
             <div class="Games">
                 @foreach (var i in fr1)
                 {
-                    <a style="margin: 38px;" href="/UserFunction/PageUser/@i.Email">
+                    <a style="margin: 38px;" asp-action="PageUser" asp-controller="UserFunction" asp-route-id="@i.Email">
                         <div class="Us">
                             <img src="/Img/User/@i.ImageSrc">
                             <div class="Informati">
-                                <p>@i.UserName</p>
+                                <p> @i.UserName</p>
                             </div>
                         </div>
                     </a>
                 }
                 @foreach (var i in fr2)
                 {
-                    <a style="margin: 38px;" href="UserFunction/PageUser/@i.Email">
+                    <a style="margin: 38px;" asp-action="PageUser" asp-controller="UserFunction" asp-route-id="@i.Email">
                         <div class="Us">
                             <img src="/Img/User/@i.ImageSrc">
                             <div class="Informati">

@@ -81,12 +81,11 @@
           @*Send Message*@
           <div class="MyChat">
             <input type="text" name="Message" id="MessageText">
-            <input id="sendButton" type="button" value="Send">
+            <input id="sendButton" onclick="sendMessage()" type="button" value="Send">
           </div>
       </div>
 
 
-
-
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/Chat.js"></script>

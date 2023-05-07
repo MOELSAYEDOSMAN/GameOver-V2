@@ -273,3 +273,4 @@ E:\projects _ Summer\CV\GameOver~v2\GameOver~V2\GameOver~V2\bin\Debug\net6.0\run
 E:\projects _ Summer\CV\GameOver~v2\GameOver~V2\GameOver~V2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 E:\projects _ Summer\CV\GameOver~v2\GameOver~V2\GameOver~V2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\projects _ Summer\CV\GameOver~v2\GameOver~V2\GameOver~V2\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+E:\projects _ Summer\CV\GameOver~v2\GameOver~V2\GameOver~V2\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
