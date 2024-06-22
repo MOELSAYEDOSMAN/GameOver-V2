@@ -1,4 +1,5 @@
 # GameOver
+![GameOver Logo](GameOver~V2/wwwroot/Img/logo-re1.png)
 
 GameOver is a social media platform designed for gamers. It includes various features similar to popular social media sites like Facebook and YouTube, but tailored specifically for the gaming community.
 
