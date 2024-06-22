@@ -26,7 +26,6 @@ GameOver is a social media platform designed for gamers. It includes various fea
 ##
 **Index**
 ![Index](ImageProject/screencapture-localhost-7220-Home-Index-2023-04-03-03_31_32.png)
-ImageProject/screencapture-localhost-7220-Home-Index-2023-04-03-03_31_32.png
 **Gamge**
 ![Game Page](ImageProject/localhost_7220-Game-GameOver.jpeg)
 **Groubs**
