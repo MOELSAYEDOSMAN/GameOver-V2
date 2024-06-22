@@ -24,17 +24,17 @@ GameOver is a social media platform designed for gamers. It includes various fea
    - A search page within groups.
    - Displays pages the user is subscribed to and the ones they are considering joining.
 ##
-**Index**
+#Index
 ![Index](ImageProject/screencapture-localhost-7220-Home-Index-2023-04-03-03_31_32.png)
-**Gamge**
+#Gamge
 ![Game Page](ImageProject/localhost_7220-Game-GameOver.jpeg)
-**Groubs**
+#Groubs
 ![Groubs](ImageProject/localhost_7220-GropHome-GameOver (1).jpeg)
-**Chat**
+#Chat
 ![Chat](ImageProject/screencapture-localhost-7220-UserFunction-Chat-39188ad9-e2c8-4c4c-ab3b-2aced2685906-2023-04-03-03_42_14.png)
-**Frinds**
+#Frinds
 ![Frinds](ImageProject/screencapture-localhost-7220-UserFunction-FrindsPage-2023-04-03-03_37_17.png)
-**Account**
+#Account
 ![Account](ImageProject/screencapture-localhost-7220-UserFunction-PageUser-Mohamed2-Gmail-com-2023-04-03-03_38_39.png)
-**Posts**
+#Posts
 ![Chat](ImageProject/screencapture-localhost-7220-UserFunction-PagesPosts-2023-04-03-03_41_42.png)
